@@ -1,4 +1,15 @@
 FreelanceStatusEng::Application.routes.draw do
+
+  resources :freelancers
+  root to: 'static_pages#home'
+
+  match '/aboutus', to: 'static_pages#aboutus'
+  match '/howitworks', to: 'static_pages#howitworks'
+  match '/impressum', to: 'static_pages#impressum'
+  match '/login', to: 'static_pages#login'
+  match '/contact', to: 'static_pages#contact'
+  match '/signup', to: 'freelancers#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
