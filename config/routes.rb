@@ -1,5 +1,7 @@
 FreelanceStatusEng::Application.routes.draw do
 
+  get "freelancers/new"
+
   resources :freelancers
   root to: 'static_pages#home'
 
