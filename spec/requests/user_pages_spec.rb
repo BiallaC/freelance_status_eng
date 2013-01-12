@@ -13,7 +13,7 @@ describe "Freelancer pages" do
   end
 
   describe "signup" do
-  	before {visit signup_path}
+  	before {visit signup_freelancer_path}
 
   	let(:submit) {"Create my account"}
 

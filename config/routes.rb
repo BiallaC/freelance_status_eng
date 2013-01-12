@@ -1,8 +1,13 @@
 FreelanceStatusEng::Application.routes.draw do
 
-  get "freelancers/new"
+  get "customers/new"
+
+  get "customers/show"
+
+  get "customers/create"
 
   resources :freelancers
+  resources :customers
   root to: 'static_pages#home'
 
   match '/aboutus', to: 'static_pages#aboutus'
@@ -10,7 +15,8 @@ FreelanceStatusEng::Application.routes.draw do
   match '/impressum', to: 'static_pages#impressum'
   match '/login', to: 'static_pages#login'
   match '/contact', to: 'static_pages#contact'
-  match '/signup', to: 'freelancers#new'
+  match '/signup_freelancer', to: 'freelancers#new'
+  match '/signup_customer', to: 'customers#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

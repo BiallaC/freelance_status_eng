@@ -1,9 +1,9 @@
-<% provide(:title, 'Sign Up Freelancers')  %>
-<h1>Sign Up for Freelancers</h1>
+<% provide(:title, 'Sign Up Customers')  %>
+<h1>Sign Up for Customers</h1>
 
 <div class="row">
 	<div class="span6 offset3">	
-		<%= form_for (@freelancer) do |f| %>
+		<%= form_for (@customer) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
 			<%= f.label :name%>
 			<%= f.text_field :name %>

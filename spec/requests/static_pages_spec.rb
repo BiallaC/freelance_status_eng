@@ -47,8 +47,8 @@ describe "StaticPages" do
   	it { should have_selector('title', text: 'Contact') }
 	end
 
-  describe "Sign Up" do
-    before { visit signup_path }
+  describe "Sign Up Freelancer" do
+    before { visit signup_freelancer_path }
     
     it { should have_selector('h1', text: 'Sign Up') }
     it { should have_selector('title', text: 'Sign Up') }
