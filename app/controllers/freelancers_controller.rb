@@ -6,6 +6,7 @@ class FreelancersController < ApplicationController
   def create
   	@freelancer=Freelancer.new(params[:freelancer])
   	if @freelancer.save
+      log_in_freelancer @freelancer
   		flash[:success] = "You are sucessfully registered! Welcome to Freelance Status"
   		redirect_to @freelancer
   	else

@@ -6,7 +6,8 @@ class CustomersController < ApplicationController
 	def create
   	@customer = Customer.new(params[:customer])
   	if @customer.save
-  		flash[:sucess] = "You are sucessfully registered! Welcome to Freelance Status"
+  		log_in_customer @customer
+      flash[:sucess] = "You are sucessfully registered! Welcome to Freelance Status"
   		redirect_to @customer
   	else
   		render 'new'

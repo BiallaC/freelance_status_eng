@@ -34,6 +34,15 @@ describe "Customer pages" do
 	  	it "should create a customer" do
 	  		expect {click_button submit}.to change(Customer, :count).by(1)
 	  	end
+	  	
+	  	describe "after saving the customer" do
+        before { click_button submit }
+        let(:customer) { Customer.find_by_email('customer@example.com') }
+
+        it { should have_selector('title', text: customer.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_link('Log out') }
+      end
 	  end
   end
 end

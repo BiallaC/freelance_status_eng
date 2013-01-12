@@ -1,19 +1,17 @@
 FreelanceStatusEng::Application.routes.draw do
 
-  get "customers/new"
-
-  get "customers/show"
-
-  get "customers/create"
-
+  resources :sessions, only: [:new, :create, :destroy]
   resources :freelancers
   resources :customers
+  resources :sessions, only: [:new, :create, :destroy]
+  
   root to: 'static_pages#home'
 
   match '/aboutus', to: 'static_pages#aboutus'
   match '/howitworks', to: 'static_pages#howitworks'
   match '/impressum', to: 'static_pages#impressum'
-  match '/login', to: 'static_pages#login'
+  match '/login', to: 'sessions#new'
+  match '/logout', to: 'sessions#destroy', via: :delete
   match '/contact', to: 'static_pages#contact'
   match '/signup_freelancer', to: 'freelancers#new'
   match '/signup_customer', to: 'customers#new'
