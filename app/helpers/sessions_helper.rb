@@ -18,6 +18,10 @@ module SessionsHelper
 		@current_freelancer ||= Freelancer.find_by_remember_token(cookies[:remember_token])
 	end
 
+	def current_freelancer?(freelancer)
+		freelancer == current_freelancer
+	end
+
 	def log_out_freelancer
 		self.current_freelancer = nil
 		cookies.delete(:remember_token)

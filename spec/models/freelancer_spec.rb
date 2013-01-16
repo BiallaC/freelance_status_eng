@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Freelancer do
 
 	before do
-		@freelancer = Freelancer.new(name: "Example Freelancer", email: "freelancer@example.com", password: "foobar", password_confirmation: "foobar")
+		@freelancer = Freelancer.new(name: "Example Freelancer", email: "freelancer@example.com", password: "foobar", password_confirmation: "foobar", status: "available", daily_rate: 1000)
 	end
 
 	subject { @freelancer }
@@ -15,6 +15,8 @@ describe Freelancer do
 	it {should respond_to(:password_confirmation)}
 	it {should respond_to(:authenticate)}
 	it {should respond_to(:remember_token)}
+	it {should respond_to(:status)}
+	it {should respond_to(:daily_rate)}
 
 	it {should be_valid}
 
@@ -75,6 +77,11 @@ describe Freelancer do
 
 	describe "when password is too short" do
 		before {@freelancer.password = @freelancer.password_confirmation = "a"*5}
+		it {should_not be_valid}
+	end
+
+	describe "when daily rate is not an integer" do
+		before {@freelancer.daily_rate = "1.000"}
 		it {should_not be_valid}
 	end
 

@@ -4,6 +4,7 @@ FactoryGirl.define do
 		email "freelancer@example.com"
 		password "foobar"
 		password_confirmation "foobar"
+		daily_rate 1000
 	end
 
 	factory :customer do
